@@ -1,9 +1,9 @@
-import UserUsesContainer from "./components/UserUsesContainer";
+import UserUsesPage from "./pages/UserUsesPage";
 
 function App() {
   return (
     <div className="App">
-      <UserUsesContainer/>
+      <UserUsesPage/>
     </div>
   );
 }
