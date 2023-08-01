@@ -7,11 +7,11 @@ const StyledSidebar = styled.div`
   flex: 3;
 `;
 
-function MainContainer() {
+function MainContainer({children}) {
   return (
     <StyledSidebar>
       <Titlebar />
-      <UserUsesContainer />
+      {children}
     </StyledSidebar>
   )
 }
