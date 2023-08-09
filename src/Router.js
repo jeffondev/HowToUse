@@ -1,21 +1,22 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import {  Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from "pages/HomePage";
 import UserUsesPage from "pages/UserUsesPage";
-import UsesCreate from "pages/UseCreate";
+import UsesCreatePage from "pages/UseCreatePage";
+import UseDetailPage from "pages/UseDetailPage";
+import LoginPage from "pages/LoginPage";
 
 function Router() {
   return (
-    <BrowserRouter>
-				<Switch>
-					<Route exact path="/" component={HomePage} />
-					<Route path="/uses/*">
-						<Route path="/uses/my" component={UserUsesPage} />
-						<Route path="/uses/create" component={UsesCreate} />
-					</Route>
-					<Route path="*" render={() => <Redirect to="/" />} />
-				</Switch>
-		</BrowserRouter>
+				<Routes>
+					<Route exact path="/" element={<HomePage />} />
+
+					<Route exact path="/login" element={<LoginPage />} />
+					<Route exact path="/uses/my" element={<UserUsesPage />} />
+					<Route exact path="/uses/create" element={<UsesCreatePage />} />
+					<Route exact path="/uses/:id" element={<UseDetailPage />} />
+					<Route exact path="*" element={<Navigate to="/" />} /> 
+				</Routes>
   )
 }
 

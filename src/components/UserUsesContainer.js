@@ -4,6 +4,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserUses } from "store";
 import UsesListItem from "./UsesListItem";
+import UseDetail from "pages/UseDetailPage";
 
 function UserUsesContainer() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function UserUsesContainer() {
     <>
       {
         uses.map(e => (
-          <UsesListItem key={e.id} code={e.code} description={e.description} />
+          <UsesListItem key={e.id} id={e.id} code={e.code} description={e.description}/>
         ))
       }
     </>

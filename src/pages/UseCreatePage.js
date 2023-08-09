@@ -9,7 +9,7 @@ const StyledMain = styled.div`
   align-items: baseline;
 `;
 
-function UsesCreate() {
+function UsesCreatePage() {
   return(
     <StyledMain>
       <Sidebar />
@@ -20,4 +20,4 @@ function UsesCreate() {
   )
 }
 
-export default UsesCreate;
+export default UsesCreatePage;
