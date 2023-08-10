@@ -5,18 +5,26 @@ import UserUsesPage from "pages/UserUsesPage";
 import UsesCreatePage from "pages/UseCreatePage";
 import UseDetailPage from "pages/UseDetailPage";
 import LoginPage from "pages/LoginPage";
+import ProfilePage from "pages/ProfilePage";
 
-function Router() {
+function Router({isLoggedIn}) {
+	console.log(isLoggedIn);
   return (
-				<Routes>
+		<Routes>
+			{isLoggedIn ? (
+				<>
 					<Route exact path="/" element={<HomePage />} />
-
-					<Route exact path="/login" element={<LoginPage />} />
+					<Route exact path="/profile" element={<ProfilePage />} />
 					<Route exact path="/uses/my" element={<UserUsesPage />} />
 					<Route exact path="/uses/create" element={<UsesCreatePage />} />
 					<Route exact path="/uses/:id" element={<UseDetailPage />} />
 					<Route exact path="*" element={<Navigate to="/" />} /> 
-				</Routes>
+				</>
+				) : (
+					<Route exact path="/" element={<LoginPage />} />
+				)
+			}
+		</Routes>
   )
 }
 
